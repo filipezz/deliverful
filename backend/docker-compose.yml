@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  server:
+    image: pablito/deliverful-server
+    build:
+      context: .
+    container_name: deliverful-server
+    restart: always
+    ports:
+      - 5061:5061 # firebase hosting port
+    volumes:
+      - .:/usr/src/app
+      # - /usr/src/app/functions/node_modules
+      # - $SSH_AUTH_SOCK:/ssh-agent # Forward local machine SSH key to docker
+    environment:
+        SSH_AUTH_SOCK: /ssh-agent
+    networks:
+      - deliverful_app
+
+networks:
+  deliverful_app: {}

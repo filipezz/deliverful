@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "deliverful-dev"
+  },
+  "targets": {
+    "deliverful-dev": {
+      "hosting": {
+        "dev.app": [
+          "proto-deliverful"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+#!/bin/bash
+SERVICE_NAME="app"
+export CURRENT_UID=$(id -u):$(id -g)
+
+alias ,dc="docker-compose"
+alias ,down=",dc down"
+alias ,up=",down && ,dc up"
+alias ,dr=",dc run \$SERVICE_NAME"
+alias ,drr=",dc run --user root \$SERVICE_NAME"
+alias ,npm=",dr npm"
+alias ,test=",dr npm run test:unit"
+alias ,tst="test"
+alias ,buildApp=",dr npm run build"
+alias ,buildDocker=",down && ,dc build && ,dr npm install"
+alias ,build=",buildDocker && ,buildApp"

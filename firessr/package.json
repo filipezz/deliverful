@@ -1,0 +1,28 @@
+{
+  "name": "Nuxt-SSR-Firebase",
+  "version": "0.1.0",
+  "description": "Host Nuxt.js SSR app on Firebase Cloud Functions with Firebase Dynamic Hosting.",
+  "license": "MIT",
+  "author": "David Royer",
+  "repository": "https://github.com/davidroyer/nuxt-ssr-firebase",
+  "scripts": {
+    "dev": "cd \"src\" && npm run dev",
+    "build": "npm run build:nuxt && npm run clean && npm run copyassets",
+    "serve": "firebase serve --only functions,hosting",
+    "deploy": "firebase deploy",
+    "predeploy": "npm run build",
+    "setup": "npm install && npm run setup:client && npm run setup:firebase && npm run setup:server",
+    "setup:client": "cd \"src\" && npm install",
+    "setup:server": "cd \"prod/server\" && npm install",
+    "setup:firebase": "mv .setup-firebaserc .firebaserc",
+    "copyassets": "npm run copydist && npm run copystatic",
+    "copydist": "cp -R prod/server/nuxt/dist/ prod/client/assets",
+    "copystatic": "cp -R src/static/ prod/client",
+    "clean": "rimraf prod/client/assets/*",
+    "build:nuxt": "cd \"src\" && npm run build"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "rimraf": "^3.0.2"
+  }
+}

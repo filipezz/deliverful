@@ -1,0 +1,33 @@
+name: TESTS ROUTINE
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js enviroment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 14.x
+
+      - uses: actions/checkout@v2
+
+      - name: Install Firebase CLI globally
+        run: npm install -g firebase-tools
+
+      - name: Install dependencies
+        run: |
+          cd src
+          npm install
+          npm install -g typescript
+
+      - uses: actions/checkout@v2
+
+      - name: Test routine
+        run: |
+          rm -rf src/nuxt
+          cd src
+          npm install
+          npm run test
+          npm run lint
+          npm run build

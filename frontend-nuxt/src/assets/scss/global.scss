@@ -1,0 +1,52 @@
+@import "variables";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $secondary-font;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1366px) {
+    margin: 0 auto;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+  font-family: $primary-font;
+}
+li {
+  list-style: none;
+}
+
+.deliverful {
+  color: $primary;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+
+  .dot {
+    color: $secondary;
+  }
+}
+
+.red {
+  background: red;
+  color: white;
+}

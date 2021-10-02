@@ -1,0 +1,22 @@
+{
+  "projects": {
+    "dev": "deliverful-dev",
+    "prod": "deliverful-prod"
+  },
+  "targets": {
+    "deliverful-dev": {
+      "hosting": {
+        "dev.app": [
+          "dev-app-deliverful-co"
+        ]
+      }
+    },
+    "deliverful-prod": {
+      "hosting": {
+        "app": [
+          "app-deliverful"
+        ]
+      }
+    }
+  }
+}

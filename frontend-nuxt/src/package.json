@@ -1,0 +1,99 @@
+{
+  "name": "deliverful",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "set NUXT_ENV_NODE_ENV=dev && cd server && tsc-watch --onSuccess \"node ./lib/index.js\"",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "set NUXT_ENV_NODE_ENV=dev && nuxt-ts build",
+    "build:server": "set NUXT_ENV_NODE_ENV=dev && cd server && tsc",
+    "start": "nuxt-ts start",
+    "lint": "eslint --fix --ext .ts,.js,.vue .",
+    "test": " jest --colors",
+    "e2e": "cypress open --browser chrome",
+    "e2e:silent": "cypress run",
+    "build:dev": "NUXT_ENV_NODE_ENV=dev && npm run build:server && npm run build:client",
+    "start:dev": "NUXT_ENV_NODE_ENV=dev && nuxt-ts start"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/composition-api": "^0.19.0",
+    "@nuxtjs/firebase": "^7.4.1",
+    "@nuxtjs/gtm": "^2.4.0",
+    "@nuxtjs/router": "^1.6.1",
+    "@nuxtjs/universal-storage": "^0.5.7",
+    "@vue-hero-icons/outline": "^1.6.3",
+    "@vue-hero-icons/solid": "^1.6.3",
+    "core-js": "^3.6.5",
+    "date-fns": "^2.17.0",
+    "express": "^4.17.1",
+    "firebase": "^8.2.3",
+    "firebase-admin": "^9.4.2",
+    "firebase-functions": "^3.11.0",
+    "nuxt": "^2.14.6",
+    "text-mask-addons": "^3.8.0",
+    "tiptap": "^1.32.1",
+    "tiptap-extensions": "^1.35.1",
+    "v-mask": "^2.2.4",
+    "vuex-persist": "^3.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@nuxt/babel-preset-app": "^2.14.12",
+    "@nuxt/types": "^2.14.0",
+    "@nuxt/typescript-build": "^2.0.3",
+    "@nuxtjs/date-fns": "^1.4.3",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config-typescript": "^3.0.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/storybook": "^3.3.1",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/vuetify": "1.11.0",
+    "@types/express": "^4.17.1",
+    "@types/jest": "^26.0.20",
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "@vue/test-utils": "^1.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.5.0",
+    "cypress": "^6.2.1",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "firebase-functions-test": "^0.2.0",
+    "husky": "^4.3.8",
+    "jest": "^26.5.0",
+    "lint-staged": "^10.5.3",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^7.1.0",
+    "ts-jest": "^26.4.1",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^3.8.0",
+    "vue-jest": "^3.0.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "*.ts": [
+      "eslint --fix"
+    ],
+    "*.vue": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run test"
+    }
+  }
+}

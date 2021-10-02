@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "deliverful-dev",
+    "prod": "deliverful-prod"
+  },
+  "targets": {
+    "deliverful-dev": {
+      "hosting": {
+        "dev.api": ["deliverful-dev"]
+      }
+    },
+    "deliverful-prod": {
+      "hosting": {
+        "api": ["deliverful-prod"]
+      }
+    }
+  }
+}

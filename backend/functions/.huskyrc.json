@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "lint-staged",
+    "pre-push": "docker exec deliverful-server npm run test:cov"
+  }
+}

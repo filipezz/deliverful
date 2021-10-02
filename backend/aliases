@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Setup SSH
+# source ssh-find-agent.sh
+# ssh_find_agent -a || (eval $(ssh-agent) > /dev/null && ssh-add)
+# set_ssh_agent_socket
+
+
+# Setup important variables
+
+SERVICE_NAME="server"
+export CURRENT_UID=$(id -u):$(id -g)
+
+# Aliases
+
+alias ,dc="docker-compose"
+alias ,down=",dc down"
+alias ,up=",down && ,dc up"
+alias ,dr=",dc run \$SERVICE_NAME"
+alias ,drr=",dc run --user root \$SERVICE_NAME"
+
+alias ,buildApp=",dr npm run build"
+alias ,buildDocker=",down && ,dc build && ,dr npm install"
+alias ,build=",buildDocker && ,buildApp"
+
+alias ,npm=",dr npm"
+
+alias ,_test_prefix=",down && ,npm run"
+alias ,test=",_test_prefix test"
+alias ,test:e2e=",_test_prefix test:e2e"
+alias ,test:unit=",_test_prefix test:unit"
+alias ,test:staged=",_test_prefix test:staged"
+alias ,test:cov=",_test_prefix test:cov"
+
+alias ,tst=",test"
+alias ,tst:e2e=",test:e2e"
+alias ,tst:unit=",test:unit"
+alias ,tst:staged=",test:staged"
+alias ,tst:cov=",test:cov"
